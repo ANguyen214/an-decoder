@@ -23,12 +23,17 @@ const caesarModule = (function () {
       {
         if(input[i] = " ")
           {
-            codeString.join(" ");
+           codeString += " ";
           }else{
             let indexShift = alphaArray.indexOf(input[i].toLowerCase, 0) + shift;
-            codeString.join(alphaArray[indexShift]);
+            if(indexShift > 25)
+              {
+                indexShift = indexShift - 26; 
+              }
+            codeString + alphaArray[indexShift];
           }
       }
+      console.log(codeString);
       return codeString;
   }
 
