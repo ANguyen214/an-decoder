@@ -18,17 +18,29 @@ const caesarModule = (function () {
     }else if(shift < -25 || shift > 25){
       return false;
     }
-
+    
     for(let i = 0; i < input.length; i++)
       {
         let asciiNum = input.toLowerCase().charCodeAt(i);
+        let indexShift = alphaArray.indexOf(input[i].toLowerCase())
         if(asciiNum >= 97 && asciiNum <= 122)
           {
-            let indexShift = alphaArray.indexOf(input[i].toLowerCase()) + shift;
-            
+            if(encode)
+              {
+                indexShift += shift;
+              }
+            else if(!encode)
+              {
+                indexShift -= shift;
+              }
+
             if(indexShift > 25)
               {
                 indexShift = indexShift - 26; 
+              }
+            if(indexShift < 0)
+              {
+                indexShift = 26 + indexShift;
               }
             codeString = codeString + alphaArray[indexShift];
           }else {
