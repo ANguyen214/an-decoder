@@ -31,5 +31,6 @@ describe("caesar", () => {
         const expected = "this is a secret message!";
         const actual = caesar(input, 8, false);
         expect(actual).to.equal(expected);
-        });    
+        });
+        
 });
