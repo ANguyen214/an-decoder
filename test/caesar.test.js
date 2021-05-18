@@ -1,6 +1,6 @@
 // Write your tests here!
 const expect = require("chai").expect;
-const caesar = require("../src/caesar");
+const {caesar} = require("../src/caesar");
 
 describe("caesar", () => {
     it("Should return a string that is shifted: thinkful => wklqnixo", () => {
@@ -20,9 +20,9 @@ describe("caesar", () => {
     it("Should return encoded message: This is a secret message! => bpqa qa i amkzmb umaaiom!",
         () => {
         const input = "This is a secret message!";
-        const expected = "bpqa qa i amkzmb umaaiom!"
-        const acutal = caesar(input, 8);
-        expect(actual).to.equal(expected);            
+        const expected = "bpqa qa i amkzmb umaaiom!";
+        const actual = caesar(input, 8);
+        expect(actual).to.equal(expected);           
         });
 
     it("Should return a decoded message: BPQA qa I amkzmb umaaiom! => this is a secret message!",

@@ -21,19 +21,20 @@ const caesarModule = (function () {
 
     for(let i = 0; i < input.length; i++)
       {
-        if(input[i] = " ")
+        let asciiNum = input.toLowerCase().charCodeAt(i);
+        if(asciiNum >= 97 && asciiNum <= 122)
           {
-           codeString += " ";
-          }else{
-            let indexShift = alphaArray.indexOf(input[i].toLowerCase, 0) + shift;
+            let indexShift = alphaArray.indexOf(input[i].toLowerCase()) + shift;
+            
             if(indexShift > 25)
               {
                 indexShift = indexShift - 26; 
               }
-            codeString + alphaArray[indexShift];
+            codeString = codeString + alphaArray[indexShift];
+          }else {
+            codeString += input[i];
           }
       }
-      console.log(codeString);
       return codeString;
   }
 
