@@ -5,6 +5,8 @@
 
 const polybiusModule = (function () {
   // you can add any code you want within this function scope
+  
+  //These are my data sets which will be used in the polybius function. -AN
   let polyDecode = {1: {1: 'a', 2: 'f', 3: 'l', 4: 'q', 5: 'v',},
                     2: {1: 'b', 2: 'g', 3: 'm', 4: 'r', 5: 'w',},
                     3: {1: 'c', 2: 'h', 3: 'n', 4: 's', 5: 'x',},
@@ -21,10 +23,16 @@ const polybiusModule = (function () {
   function polybius(input, encode = true) {
     // your solution code here
 
+    //This empty string codeString will accumulate input characters. -AN
     let codeString = "";
+
+    //This for loop will iterate through the input and locate the appropriate
+    //letter/number in the proper data set and accumulate them in codeString. -AN
     for(i = 0; i < input.length; i++)
       {
+        //By using ascii values I am able to ignore spaces and special characters. -AN
         let asciiNum = input.toLowerCase().charCodeAt(i);
+        //Will use polyEncode data set and accumulate its findings in codeString. -AN
         if(encode)
           {
             if(asciiNum >= 97 && asciiNum <= 122)
@@ -36,9 +44,14 @@ const polybiusModule = (function () {
                 codeString += input[i];
               }
           }
+        //Will use polyDecode data set and accumulates into codeString. -AN  
         else
           {
+            //This line removes all spaces. -AN
             let noSpaceInput = input.replace(/ /g, "");
+            
+            //By taking modulus I can determine whether the input has an even
+            //number of characters. If not it will return false. -AN
             if(noSpaceInput.length % 2 !== 0)
               {
                 return false;
